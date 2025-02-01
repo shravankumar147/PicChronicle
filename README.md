@@ -64,7 +64,7 @@ PicChronicle is a Python-based tool that automatically organizes your photos by 
   The script uses Pillow to read image metadata and extract the capture date (`DateTimeOriginal`) and GPS information.
 
 - **Organizing by Date:**  
-  It creates a folder structure in the format: `DESTINATION_FOLDER/<Year>/<Month>/`.
+  It creates a folder structure in the format: `DESTINATION_FOLDER/<Year>/<Month>/<Date>`.
 
 - **Reverse Geocoding for Location:**  
   If GPS coordinates are present, the script uses geopy's Nominatim service to convert the coordinates into a city or region name, further categorizing the images.
