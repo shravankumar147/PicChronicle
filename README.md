@@ -1,12 +1,13 @@
 # PicChronicle
 
-PicChronicle is a Python-based tool that automatically organizes your photos by extracting EXIF data to sort images into folders by year, month, and (when available) location. It uses reverse geocoding to convert GPS coordinates into city or region names, making it easy to browse and archive your memories.
+PicChronicle is a Python-based tool that automatically organizes your photos by extracting EXIF data to sort images into folders by year, month, and (when available) location. It uses reverse geocoding to convert GPS coordinates into city or region names, making it easy to browse and archive your memories. Additionally, it stores image metadata in JSON format, including detected objects, faces, and tags.
 
 ## Features
 
 - **EXIF Data Extraction:** Reads image metadata to retrieve the date the photo was taken.
-- **Automatic Folder Organization:** Creates a folder structure by year and month.
+- **Automatic Folder Organization:** Creates a folder structure by year, month, and day.
 - **Location-Based Categorization:** Uses reverse geocoding (via Nominatim) to further organize photos by city or region if GPS data is available.
+- **Metadata Storage:** Stores image details in structured JSON format, including filename, creation date, location, detected objects, faces, and tags.
 - **Duplicate Handling:** Renames files if a duplicate file name exists in the target directory.
 - **Cross-Platform:** Works on Windows, macOS, and Linux.
 
@@ -15,6 +16,8 @@ PicChronicle is a Python-based tool that automatically organizes your photos by 
 - Python 3.6 or higher
 - [Pillow](https://pypi.org/project/Pillow/) for image processing
 - [geopy](https://pypi.org/project/geopy/) for reverse geocoding
+- [face-recognition](https://pypi.org/project/face-recognition/) for face detection (optional)
+- [imageai](https://pypi.org/project/imageai/) or [YOLO](https://pjreddie.com/darknet/yolo/) for object detection (optional)
 
 ## Installation
 
@@ -41,7 +44,7 @@ PicChronicle is a Python-based tool that automatically organizes your photos by 
    Alternatively, install dependencies manually:
 
    ```bash
-   pip install Pillow geopy
+   pip install Pillow geopy face-recognition imageai
    ```
 
 ## Usage
@@ -56,7 +59,7 @@ PicChronicle is a Python-based tool that automatically organizes your photos by 
    python picchronicle.py
    ```
 
-   The script will recursively scan the source folder, extract EXIF data from each image, and move them into a structured folder hierarchy.
+   The script will recursively scan the source folder, extract EXIF data from each image, and move them into a structured folder hierarchy while saving metadata in a JSON file.
 
 ## How It Works
 
@@ -68,6 +71,15 @@ PicChronicle is a Python-based tool that automatically organizes your photos by 
 
 - **Reverse Geocoding for Location:**  
   If GPS coordinates are present, the script uses geopy's Nominatim service to convert the coordinates into a city or region name, further categorizing the images.
+
+- **Metadata Storage:**  
+  Each image's metadata, including filename, creation date, location, detected objects, faces, and tags, is stored in a structured JSON file.
+
+## Visualization
+
+Below is a visual representation of the image organization workflow:
+
+![Workflow Diagram](assets\PicChronicle_FlowChart.png)
 
 ## Contributing
 
@@ -82,3 +94,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [Pillow](https://pypi.org/project/Pillow/) for image processing.
 - [geopy](https://pypi.org/project/geopy/) for geocoding services.
 - OpenStreetMap Nominatim for reverse geocoding API.
+- [face-recognition](https://pypi.org/project/face-recognition/) for face detection.
+- [imageai](https://pypi.org/project/imageai/) for object detection.
