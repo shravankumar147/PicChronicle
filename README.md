@@ -79,7 +79,7 @@ PicChronicle is a Python-based tool that automatically organizes your photos by 
 
 Below is a visual representation of the image organization workflow:
 
-![Workflow Diagram](assets\PicChronicle_FlowChart.png)
+![Workflow Diagram](assets/PicChronicle_FlowChart.png)
 
 ```mermaid
 graph TD;
