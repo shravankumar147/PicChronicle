@@ -81,6 +81,24 @@ Below is a visual representation of the image organization workflow:
 
 ![Workflow Diagram](assets\PicChronicle_FlowChart.png)
 
+```mermaid
+graph TD;
+    A[Start] --> B[Scan Source Folder for Images]
+    B --> C{Extract EXIF Data}
+    C -->|Date Found| D[Organize by Year/Month/Day]
+    C -->|No Date| E[Use File Creation Date]
+    D & E --> F{Extract GPS Data}
+    F -->|GPS Found| G[Reverse Geocode Location]
+    F -->|No GPS| H[Store in 'Unknown Location']
+    G --> I[Organize by City/Region]
+    I & H --> J[Move to Destination Folder]
+    J --> K[Store Metadata in JSON]
+    J --> L[Perform Object & Face Detection]
+    L --> M[Store Detected Objects/Faces]
+    K & M --> N[Update Metadata Database]
+    N --> O[End]
+```
+
 ## Contributing
 
 Contributions are welcome! If you have ideas for improvements or find any issues, please open an issue or submit a pull request. When contributing, please follow the existing code style and include tests where applicable.
