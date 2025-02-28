@@ -181,3 +181,52 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# SSL/TLS Certificates and Keys
+*.pem
+*.key
+*.crt
+*.csr
+*.cer
+*.der
+*.priv
+
+# Configuration files
+config.yaml
+config.yml
+*.conf
+settings.json
+
+# Credentials and secrets
+*.key
+credentials.json
+*_credentials.*
+auth.json
+secrets.yaml
+secrets.yml
+
+# FTP/SFTP related
+.ftpconfig
+.ftpignore
+sftp-config.json
+
+# Local development files
+local_file.txt
+local_*.txt
+local_*.json
+
+# Metadata and organized files
+metadata.json
+organized/
+unorganized/
+
+# Logs and debugging
+debug.log
+*.debug
+logs/
+log/
+
+# Test data
+test_data/
+sample_data/
+mock_data/
