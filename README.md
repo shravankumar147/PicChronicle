@@ -108,6 +108,44 @@ graph TD;
 ```
 </details>
 
+## Configuration
+
+### Setting up Configuration Files
+
+1. **Environment Variables (.env)**
+   - Copy `src/.env.example` to `src/.env`
+   - Update the values in `.env` with your FTP server credentials:
+     ```
+     FTP_HOST = "your.ftp.server"
+     FTP_USER = "your_username"
+     FTP_PASS = "your_password"
+     ```
+   - Optional: Configure SSL/TLS settings if using secure FTP
+
+2. **Application Configuration (config.yaml)**
+   - Copy `src/config.yaml.example` to `src/config.yaml`
+   - Update the paths in `config.yaml`:
+     ```yaml
+     ftp:
+       local_folder: "/path/to/your/local/photos"
+       remote_folder: "/path/on/ftp/server"
+       use_env_credentials: true
+     ```
+   - Set `use_env_credentials` to `true` to use credentials from `.env` file
+   - Alternatively, set it to `false` and configure credentials directly in `config.yaml`
+
+### Security Notes
+
+- Never commit sensitive files to version control
+- The following files are ignored by `.gitignore`:
+  - `.env` and `config.yaml` (configuration files)
+  - `*.pem`, `*.key`, `*.crt`, `*.csr` (SSL/TLS certificates)
+  - `credentials.json` and other credential files
+  - Log files and debug information
+- Always use environment variables or secure secret management for sensitive data
+- Keep your SSL/TLS certificates in a secure location
+- Regularly rotate passwords and access credentials
+
 ## Contributing
 
 Contributions are welcome! If you have ideas for improvements or find any issues, please open an issue or submit a pull request. When contributing, please follow the existing code style and include tests where applicable.
