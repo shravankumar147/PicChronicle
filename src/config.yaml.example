@@ -1,0 +1,16 @@
+# FTP Configuration
+ftp:
+  # Local folder path containing organized photos
+  local_folder: "/path/to/your/local/photos"
+  
+  # Remote folder path on the FTP server
+  remote_folder: "/path/on/ftp/server"
+  
+  # Whether to use credentials from .env file
+  use_env_credentials: true  # Set to false to provide credentials directly in this file
+  
+  # Optional: Direct credential configuration (only used if use_env_credentials is false)
+  # credentials:
+  #   host: "ftp.example.com"
+  #   username: "your_username"
+  #   password: "your_password" 
