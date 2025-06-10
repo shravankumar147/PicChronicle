@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from omegaconf import OmegaConf
 
 # Load Configurations
-config = OmegaConf.load("config.yaml")
+config = OmegaConf.load("src/config.yaml")
 
 # Load environment variables
 load_dotenv()
