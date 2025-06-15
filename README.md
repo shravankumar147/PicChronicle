@@ -49,6 +49,27 @@ PicChronicle is a Python-based tool that automatically organizes your photos by 
 
 ## Usage
 
+First run the script to organize your photos:
+
+```bash
+python picchronicle.py
+```
+Then run copy_media_for_cloud.py to copy your photos to the cloud ready, meaning it excludes raw files and other media that are not needed in the cloud.
+
+```bash
+python copy_media_for_cloud.py
+```
+
+Then run the ftp_upload.py script to upload the organized photos to your FTP server:
+
+```bash
+python ftp_upload.py
+```
+
+This will upload the organized photos to your FTP server, and remove local copies of the photos after successful upload, temporarily storing them in a local trash folder, for later deletion.
+
+
+
 1. **Configure Paths:**
 
    Open the main script file (e.g., `picchronicle.py`) and set the `SOURCE_FOLDER` and `DESTINATION_FOLDER` variables to the paths of your image collection and where you want the organized photos to be stored.
