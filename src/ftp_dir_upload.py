@@ -21,6 +21,14 @@ TRASH_FOLDER = os.path.join(LOCAL_FOLDER, ".trash")
 def move_to_trash(local_file):
     """Moves a file to .trash, preserving relative folder structure."""
     rel_path = os.path.relpath(local_file, LOCAL_FOLDER)
+    
+    # if not os.path.commonpath([LOCAL_FOLDER, local_file]).startswith(LOCAL_FOLDER): 
+    #     raise ValueError("local_file is outside of LOCAL_FOLDER")
+
+    if not is_within_folder(LOCAL_FOLDER, local_file):
+        raise ValueError("local_file is outside of LOCAL_FOLDER")
+
+
     trash_file_path = os.path.join(TRASH_FOLDER, rel_path)
     os.makedirs(os.path.dirname(trash_file_path), exist_ok=True)
 
@@ -85,6 +93,11 @@ def upload_directory(ftp, local_folder, remote_folder):
             local_file = os.path.join(root, file)
             remote_file = f"{remote_path}/{file}"
             upload_file(ftp, local_file, remote_file)
+
+def is_within_folder(base_folder, target_file):
+    base_folder = os.path.abspath(os.path.normcase(os.path.normpath(base_folder)))
+    target_file = os.path.abspath(os.path.normcase(os.path.normpath(target_file)))
+    return os.path.commonpath([base_folder, target_file]) == base_folder
 
 def main():
     """Main entrypoint."""
